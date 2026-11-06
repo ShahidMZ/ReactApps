@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import "./index.css";
 
 const pizzaData = [
   {
@@ -48,7 +49,7 @@ const pizzaData = [
 
 function App() {
   return (
-    <div>
+    <div className="container">
       <Header />
       <Menu />
       <Footer />
@@ -57,37 +58,68 @@ function App() {
 }
 
 function Header() {
-  return <h1>Fast React Pizza Co.</h1>;
+  // const style = { color: "red", fontSize: "48px", textTransform: "uppercase" };
+
+  return (
+    <header className="header">
+      <h1>Fast React Pizza Co.</h1>
+    </header>
+  );
 }
 
 function Menu() {
   return (
-    <div>
+    <main className="menu">
       <h2>Our Menu</h2>
-      <Pizza />
-      <Pizza />
-      <Pizza />
-      <Pizza />
-      <Pizza />
-      <Pizza />
+      <Pizza
+        name="Pizza Spinaci"
+        ingredients="Tomato, mozarella, ham, arugula, and burrata cheese"
+        photoName="pizzas/prosciutto.jpg"
+        price={10}
+      />
+      <Pizza
+        name="Pizza Funghi"
+        ingredients="Tomato, mozarella, mushrooms, and onion"
+        photoName="pizzas/funghi.jpg"
+        price={13}
+      />
+    </main>
+  );
+}
+
+function Pizza(props) {
+  console.log(props);
+
+  return (
+    <div className="pizza">
+      <img src={props.photoName} alt={props.name}></img>
+      <div>
+        <h3>{props.name}</h3>
+        <p>{props.ingredients}</p>
+        <span>{props.price + 3}</span>
+      </div>
     </div>
   );
 }
 
 function Footer() {
   // return React.createElement("footer", null, "We're currently open!");
-  return (
-    <footer>{new Date().toLocaleTimeString()}. We're currently open!</footer>
-  );
-}
+  const hour = new Date().getHours();
+  const openHour = 12;
+  const closeHour = 22;
+  const isOpen = hour >= openHour && hour <= closeHour;
+  console.log(isOpen);
 
-function Pizza() {
+  // if (hour >= openHour && hour <= closeHour) {
+  //   alert("We're currently open!");
+  // } else {
+  //   alert("Sorry, we're closed!");
+  // }
+
   return (
-    <div>
-      <img src="pizzas/prosciutto.jpg" alt="Pizza Spinaci"></img>
-      <h2>Pizza Sadieus</h2>
-      <p>Tomato, mozarella, ham, arugula, and burrata cheese</p>
-    </div>
+    <footer className="footer">
+      {new Date().toLocaleTimeString()}. We're currently open!
+    </footer>
   );
 }
 
