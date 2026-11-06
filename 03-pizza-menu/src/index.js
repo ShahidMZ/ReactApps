@@ -88,7 +88,7 @@ function Menu() {
 }
 
 function Pizza(props) {
-  console.log(props);
+  // console.log(props);
 
   return (
     <div className="pizza">
