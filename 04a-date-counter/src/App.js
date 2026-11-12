@@ -18,48 +18,28 @@ function Counter() {
     day: "numeric",
     year: "numeric",
   };
-  const [date, setDate] = useState(
-    new Date().toLocaleDateString("en", options),
-  );
-
-  function decreaseCount() {
-    setCount((x) => x - step);
-    setDate((x) => {
-      var date = new Date(x.valueOf());
-      date.setDate(date.getDate() - step);
-      return date.toLocaleDateString("en", options);
-    });
-  }
-
-  function increaseCount() {
-    setCount((x) => x + step);
-    setDate((x) => {
-      var date = new Date(x.valueOf());
-      date.setDate(date.getDate() + step);
-      return date.toLocaleDateString("en", options);
-    });
-  }
+  const newDate = new Date();
+  newDate.setDate(new Date().getDate() + count);
 
   return (
     <>
-      <div className="counter">
-        <button
-          onClick={() => {
-            if (step > 0) {
-              setStep((x) => x - 1);
-            }
-          }}
-        >
-          -
-        </button>
-        <p>Step: {step}</p>
-        <button onClick={() => setStep((x) => x + 1)}>+</button>
+      <div className="center slider">
+        <input
+          type="range"
+          min="0"
+          max="10"
+          value={step}
+          onChange={(x) => setStep(+x.target.value)}
+        />
+        <span>{step}</span>
       </div>
-      <div className="counter">
-        <button onClick={decreaseCount}>-</button>
-        <p>Count: {count}</p>
-        <button onClick={increaseCount}>+</button>
+
+      <div className="center">
+        <button onClick={(x) => setCount((x) => x - step)}>-</button>
+        <input value={count} onChange={(x) => setCount(+x.target.value)} />
+        <button onClick={(x) => setCount((x) => x + step)}>+</button>
       </div>
+
       <div className="text">
         <p>
           <span>
@@ -69,9 +49,22 @@ function Counter() {
                 ? `${count} day(s) from today is `
                 : `${Math.abs(count)} day(s) ago was `}
           </span>
-          <span>{date}</span>
+          <span>{newDate.toLocaleDateString("en", options)}</span>
         </p>
       </div>
+
+      {(step !== 1 || count !== 0) && (
+        <div className="center">
+          <button
+            onClick={() => {
+              setCount(0);
+              setStep(1);
+            }}
+          >
+            Reset
+          </button>
+        </div>
+      )}
     </>
   );
 }
