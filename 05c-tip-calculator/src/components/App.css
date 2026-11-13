@@ -1,0 +1,31 @@
+body {
+  margin: 25px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 15px;
+  width: 40em;
+  /* margin: auto; */
+}
+
+.component {
+  display: flex;
+  gap: 10px;
+}
+
+select {
+  height: 30px;
+  border-radius: 5px;
+}
+
+input {
+  height: 20px;
+}
+
+button {
+  width: 200px;
+  height: 40px;
+}
