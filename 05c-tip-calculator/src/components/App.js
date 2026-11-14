@@ -18,6 +18,7 @@ export default function App() {
 
   return (
     <div className="container">
+      <h1>Tip Calculator</h1>
       <BillInput bill={bill} setBill={setBill}></BillInput>
 
       <SelectPercentage tip={tip1} setTip={setTip1}>
@@ -27,10 +28,12 @@ export default function App() {
       <SelectPercentage tip={tip2} setTip={setTip2}>
         How did your friend like the service?
       </SelectPercentage>
-
-      <Output bill={bill} tip={((tip1 + tip2) * bill) / 200}></Output>
-
-      <Reset onReset={handleReset}></Reset>
+      {bill > 0 && (
+        <>
+          <Output bill={bill} tip={((tip1 + tip2) * bill) / 200}></Output>
+          <Reset onReset={handleReset}></Reset>
+        </>
+      )}
     </div>
   );
 }
