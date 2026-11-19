@@ -1,0 +1,19 @@
+.star-rating {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.container {
+  display: flex;
+}
+
+p {
+  line-height: 1;
+  margin: 0;
+}
+
+.star {
+  display: block;
+  cursor: pointer;
+}
