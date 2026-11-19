@@ -1,0 +1,182 @@
+/* -------------
+Top Nav Bar
+---------------- */
+.topNav {
+  background-color: rgb(14, 40, 57);
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  height: 70px;
+  width: 100%;
+  z-index: 50;
+  display: flex;
+  justify-content: space-between;
+
+  h2 {
+    color: #fff;
+    margin-left: 20px;
+  }
+
+  .topMenu {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    padding-right: 25px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+
+  .logout {
+    cursor: pointer;
+
+    &:hover {
+      transition: 0.2s;
+      color: #09f;
+    }
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  height: 100vh;
+
+  .main {
+    overflow-y: scroll;
+    width: 100%;
+    padding-top: 70px;
+  }
+}
+
+/* -------------
+Sidebar
+----------------*/
+.sidebar {
+  position: relative;
+  //width: 33.3333%;
+  width: 17em;
+  height: 100%;
+  top: 0;
+  overflow: hidden;
+  background-color: #19222a;
+  -webkit-transform: translateZ(0);
+  visibility: visible;
+  -webkit-backface-visibility: hidden;
+
+  header {
+    background-color: #09f;
+    width: 100%;
+    display: block;
+    padding: 0.75em 1em;
+  }
+}
+
+/* -------------
+Sidebar Nav
+----------------*/
+.sidebar-nav {
+  position: fixed;
+  padding-top: 70px;
+  //width: 13em;
+  background-color: #19222a;
+  height: 100%;
+  font-weight: 400;
+  font-size: 1.2em;
+  overflow: auto;
+  padding-bottom: 6em;
+  z-index: 9;
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch;
+
+  ul {
+    list-style: none;
+    display: block;
+    padding: 0;
+    margin: 0;
+
+    li {
+      margin-left: 0;
+      padding-left: 0;
+      //min-width: 13em;
+      display: inline-block;
+      width: 100%;
+
+      a {
+        color: #ccc;
+        opacity: 0.9;
+        font-size: 0.75em;
+        padding: 1.05em 1em;
+        position: relative;
+        display: flex;
+        align-items: center;
+
+        span {
+          margin-left: 10px;
+          overflow-wrap: break-word;
+        }
+
+        &:hover {
+          color: #fff;
+          opacity: 1;
+          background-color: rgba(0, 0, 0, 0.9);
+          transition: all 0.6s ease;
+        }
+      }
+      /* -------------
+      Sidebar: icons
+      ----------------*/
+      i {
+        font-size: 1em;
+        padding-right: 0.5em;
+        width: 9em;
+        display: inline;
+        vertical-align: middle;
+      }
+    }
+  }
+
+  /* -------------
+    Chev elements
+    ----------------*/
+  & > ul > li > a:after {
+    content: "\f125";
+    font-family: ionicons;
+    font-size: 0.5em;
+    width: 10px;
+    color: #fff;
+    position: absolute;
+    right: 0.75em;
+    top: 45%;
+  }
+  /* -------------
+  Nav-Flyout
+  ----------------*/
+  & .nav-flyout {
+    position: absolute;
+    background-color: #080d11;
+    z-index: 9;
+    left: 2.5em;
+    top: 0;
+    padding-top: 70px;
+    height: 100vh;
+    transform: translateX(100%);
+    transition: all 0.5s ease;
+
+    a:hover {
+      background-color: rgba(255, 255, 255, 0.05);
+    }
+  }
+
+  /* -------------
+  Hover
+  ----------------*/
+  & ul > li:hover {
+    .nav-flyout {
+      transform: translateX(0);
+      transition: all 0.5s ease;
+    }
+  }
+}

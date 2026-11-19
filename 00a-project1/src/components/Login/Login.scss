@@ -1,0 +1,44 @@
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 100vh;
+  background-color: rgb(14, 40, 57);
+  color: #eee;
+
+  .login-form {
+    display: flex;
+    align-items: center;
+    padding: 150px 0 150px 200px;
+    border-left: 2px solid white;
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+
+      .submit-button {
+        display: flex;
+        justify-content: center;
+
+        button {
+          width: 150px;
+          height: 35px;
+          border-radius: 8px;
+          background-color: #aaa;
+          border: 0px;
+
+          &:hover {
+            background-color: #666;
+            color: #ddd;
+            transition: 0.2s;
+          }
+        }
+      }
+    }
+  }
+}
+
+.error {
+  color: red;
+}

@@ -1,0 +1,16 @@
+.inputContainer {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+label {
+  width: 100px;
+}
+
+input {
+  height: 30px;
+  min-width: 300px;
+  border: 0px;
+  border-radius: 5px;
+}
